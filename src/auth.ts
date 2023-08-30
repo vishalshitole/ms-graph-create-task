@@ -16,7 +16,7 @@ export default class Auth {
     }
 
     async getAccessToken(): Promise<string> {
-        core.info("\u001b[93m⌛ Getting access token...");
+        core.info("\u001b[93m⌛ Getting access token..");
 
         try{
             const clientCredentialRequest: ClientCredentialRequest = {
