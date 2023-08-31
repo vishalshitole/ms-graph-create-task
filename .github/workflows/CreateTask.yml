@@ -1,0 +1,22 @@
+name: Microsoft Graph Task
+
+on: [pull_request]
+
+jobs:
+  create-task:
+    runs-on: ubuntu-latest
+    name: Create Task
+    
+    steps:
+    - name: Create a task for the user
+      uses: ./
+      with:
+        clientId: ${{ secrets.CLIENT_ID }}
+        clientSecret: ${{ secrets.CLIENT_SECRET }}
+        tenantId: ${{ secrets.TENANT_ID }}
+        planId: ${{ secrets.PLAN_ID }}
+        title: "Review pull request."
+        userId: "78153959-f6fd-4f3c-a470-c16009509900"
+        description: "Please review the pull request. Link to the pull request ${{ github.event.pull_request.html_url }}."
+        bucketId: "p5cqjmcuiEmil6F7wLdcqckAGeHt"
+        priority: 1
