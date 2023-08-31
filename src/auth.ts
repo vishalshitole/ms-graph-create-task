@@ -1,5 +1,11 @@
-import { AuthenticationResult, ClientCredentialRequest, ConfidentialClientApplication, Configuration } from "@azure/msal-node";
+import { 
+    AuthenticationResult, 
+    ClientCredentialRequest, 
+    ConfidentialClientApplication, 
+    Configuration 
+} from "@azure/msal-node";
 import * as core from '@actions/core';
+
 export default class Auth {
     private config: Configuration;
     private cca: ConfidentialClientApplication;
@@ -16,7 +22,7 @@ export default class Auth {
     }
 
     async getAccessToken(): Promise<string> {
-        core.info("\u001b[93m⌛ Getting access token..");
+        core.info("Getting access token..");
 
         try{
             const clientCredentialRequest: ClientCredentialRequest = {
@@ -25,11 +31,11 @@ export default class Auth {
             };
             const response: AuthenticationResult = await this.cca.acquireTokenByClientCredential(clientCredentialRequest);
             const accessToken: string = response?.accessToken;
-            core.info("\u001b[32m✅ Got access token");
-            // core.info(`\u001b[32m✅ Access token: ${accessToken}`);
+            core.info("Got access token");
+            // core.info(`Access token: ${accessToken}`);
             return accessToken;
         } catch (error) {
-            core.error("\u001b[91m🚨 Error in getAccessToken function.");
+            core.error("Error in getAccessToken function.");
             core.error(error);
             core.setFailed(error.errorMessage);
             return null;

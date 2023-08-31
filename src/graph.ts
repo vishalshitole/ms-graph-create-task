@@ -16,21 +16,21 @@ export default class Graph {
         const client: Client = await this.getClient();
 
         if (client) {
-            core.info("\u001b[93m⌛ Creating task...");
+            core.info("Creating task...");
             try {
                 const result: any = await client
                     .api(`/planner/tasks`)
                     .post(task);
 
                 if (result) {
-                    core.info("\u001b[32m✅ Task created");
+                    core.info("Task created");
                     console.log(result);
                 } else {
-                    core.warning("\u001b[33m⚠️ There was an error creating the task");
+                    core.warning("There was an error creating the task");
                 }
                 return result;
             } catch (error) {
-                core.error("\u001b[91m🚨 Error in createTask function.");
+                core.error("Error in createTask function.");
                 core.error(error);
                 core.setFailed(error);
                 return null;
@@ -39,10 +39,10 @@ export default class Graph {
         return null;
     };
 
+    //get graph client
     private async getClient(): Promise<Client> {
         const accessToken: string = await this.auth.getAccessToken();
         if (accessToken) {
-            core.info("\u001b[93m⌛ Getting Graph client...");
             const authProvider: AuthProvider = (done) => {
                 done(null, accessToken)
             };
@@ -50,7 +50,6 @@ export default class Graph {
                 authProvider
             };
             const client: Client = Client.init(options);
-            core.info("\u001b[32m✅ Got Graph client");
             return client;
         }
         return null;

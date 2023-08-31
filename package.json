@@ -8,22 +8,12 @@
     "package": "ncc build",
     "all": "npm run build && npm run package"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/anoopt/ms-graph-create-task.git"
-  },
   "keywords": [
     "msgraph",
     "github",
     "actions",
     "task"
   ],
-  "author": "anoopt",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/anoopt/ms-graph-create-task/issues"
-  },
-  "homepage": "https://github.com/anoopt/ms-graph-create-task#readme",
   "dependencies": {
     "@actions/core": "^1.10.0",
     "@azure/msal-node": "^1.14.6",

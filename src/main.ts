@@ -47,7 +47,6 @@ async function run() {
         priority
     };
 
-
     const result: any = await graph.createTask(task);
     core.setOutput('event', result);
 }

@@ -1,6 +1,6 @@
 name: 'Create a task with Microsoft Graph using MSAL'
 description: "Creates a taks in a specified Planner plan and assigns it to a specified user on a specified date."
-author: 'Anoop Tatti'
+author: 'Anonymous'
 branding:
   icon: 'calendar'
   color: 'blue'

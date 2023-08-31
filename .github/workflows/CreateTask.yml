@@ -6,9 +6,10 @@ jobs:
   create-task:
     runs-on: ubuntu-latest
     name: Create Task
+    
     steps:
     - name: Create a task for the user
-      uses: vishalshitole/ms-graph-create-task@v1
+      uses: ./
       with:
         clientId: ${{ secrets.CLIENT_ID }}
         clientSecret: ${{ secrets.CLIENT_SECRET }}
